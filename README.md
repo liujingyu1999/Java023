@@ -1,19 +1,74 @@
-#字符串实验
+字符串实验
 ======
-##实验目的
-=========
-掌握字符串String及其方法的使用。
-掌握异常处理结构
-###实验要求
-===========
-利用已学的字符串处理知识编程完成《长恨歌》古诗的整理对其工作，写出功能函数，并运行。达到如下功能。
-1.每7哥汉字加入一个标点符号，奇数时加“，”，偶数时加“。”
-2允许提供输入参数，统计古诗中某个字或词出现的次数。
-3允许操作中可能出现的异常，在程序中设计异常处理程序。
-####实验过程
-=============
-查询资料，整理方向，理清代码，编译代码，输入古诗，调试代码，按要求输出。
-#####编程感想
-=============
-在做实验前,一定要将课本上的知识吃透,因为这是做实验的基础,否则,在老师讲解时就会听不懂,这将使你在做实验时的难度加大,浪费做实验的宝贵时间.比如做应变片的实验,你要清楚字符串的用法,如果你不清楚,在做实验时才去摸索,这将使你极大地浪费时间.做实验时,一定要亲力亲为,务必要将每个步骤,每个细节弄清楚,弄明白,实验后,还要复习,思考,这样,你的印象才深刻,记得才牢固,否则,过后不久你就会忘得一干二净,这还不如不做.做实验时,老师还会根据自己的亲身体会,将一些课本上没有的知识教给我们,拓宽我们的眼界,使我们认识到这门课程在生活中的应用是那么的广泛. 
-通过这次字符串实验,使我学到了不少实用的知识,更重要的是,做实验的过程,思考问题的方法,真正使我们受益匪浅.
+
+实验目的
+-------
+掌握字符串String及其方法的使用。<br>
+掌握异常处理结构<br>
+
+实验要求
+--------
+利用已学的字符串处理知识编程完成《长恨歌》古诗的整理对其工作，写出功能函数，并运行。达到如下功能。<br>
+1.每7哥汉字加入一个标点符号，奇数时加“，”，偶数时加“。”<br>
+2允许提供输入参数，统计古诗中某个字或词出现的次数。<br>
+3允许操作中可能出现的异常，在程序中设计异常处理程序。<br>
+
+核心代码
+---------
+1.将所需改格式的文字输入<br>
+```		    
+        public static void main(String[] args) {
+    	printsplit(args[0]);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));   
+        String strs = null;
+        while(true){
+            try {
+                System.out.println("输入参数：" );
+                strs = br.readLine();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+            break;
+        }
+        int count = count(args[0], strs);
+        System.out.println(strs + " 出现 " + count + " 次");
+    }
+```    
+2.用for循环每7个字添加一个逗号，每14字添加一个句号和换行符“\n”<br>
+```
+public static void printsplit(String strsplit) {
+  for (int i = 0; i<strsplit.length(); i = i+7) {
+   if( i%2 == 0 ){
+    String split = strsplit.substring(i, i+7);
+    System.out.print(split+ "，");   
+   } 
+   if( i%2 == 1 ){
+    String split = strsplit.substring(i, i+7);
+    System.out.print(split+ "。" + "\n");  
+   } 
+   
+  } 
+ }
+ ```
+3．输入某文字，将该文字与该段文字出现的次数输出<br>
+```		
+    public static int count(String srcStr, String findStr) {
+  int count = 0;
+  int index = 0;
+  while ((index = srcStr.indexOf(findStr, index)) != -1) {
+
+   index = index + findStr.length();
+   count++; 
+  }
+  return count;
+ }
+```
+实验结果
+--------
+实验过程
+-----------
+查询资料，整理方向，理清代码，编译代码，输入古诗，调试代码，按要求输出。<br>
+
+编程感想
+------------
+在这次实验中，学会如何在一段文字中，查找某文字出现的次数。遇到不会的要虚心向同学请教，敢于向同学问问题或自己上网查资料。<br>
