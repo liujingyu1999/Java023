@@ -65,6 +65,8 @@ public static void printsplit(String strsplit) {
 ```
 实验结果
 --------
+![](https://github.com/liujingyu1999/Java023/blob/master/%E6%8D%95%E8%8E%B7.PNG)
+
 实验过程
 -----------
 查询资料，整理方向，理清代码，编译代码，输入古诗，调试代码，按要求输出。<br>
